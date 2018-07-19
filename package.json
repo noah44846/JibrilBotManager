@@ -39,8 +39,8 @@
       "electronInstallerDebian": {},
       "electronInstallerRedhat": {},
       "github_repository": {
-        "owner": "",
-        "name": ""
+        "owner": "anon44846",
+        "name": "JibrilBotManager"
       },
       "windowsStoreConfig": {
         "packageName": "",
