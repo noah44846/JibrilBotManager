@@ -1,0 +1,82 @@
+body {
+    height: 100%;
+    background-color: #151515; /* #2F3E36 #272B29 #252526 #333935 */
+    margin: 0;
+}
+
+#main_wrapper {
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    font-family: Consolas, 'Courier New', monospace;
+}
+
+/* main view */
+
+#welcome_screen {
+    max-width: 70%;
+    flex-grow: 1;
+    margin: auto;
+}
+
+header {
+    min-height: 50px;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#welcome_header {
+    text-align: center;
+    margin: 0;
+    font-size: 2em;
+}
+
+#welcome_text {
+    width: 80%;
+    margin: auto;
+}
+
+/* guilds menu */
+
+#guilds_menu {
+    min-width: 300px;
+    height: 100vh;
+    align-self: flex-start;
+    background-color: #232323;
+    display: flex;
+    flex-direction: column;
+}
+
+.guild_element {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.guild_element a {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+}
+
+.guild_element a:hover {
+    background-color: #3d3d3d;
+}
+
+.guild_element img {
+    width: 20%;
+    height: 20%;
+    margin: 10px 10px;
+}
+
+.guild_element h1 {
+    font-size: 1.4em;
+    text-align: center;
+}
+
+#guilds_menu_header {
+    font-size: 1.45em;
+}
