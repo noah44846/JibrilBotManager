@@ -1,5 +1,7 @@
 import { app, BrowserWindow } from 'electron';
 
+const path = require('path');
+
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
     app.quit();
@@ -14,10 +16,14 @@ const createWindow = () => {
         height: 800,
         minWidth: 1200,
         minHeight: 800,
+        webPreferences: {
+            nodeIntegration: false,
+            preload: path.join(__dirname, 'preload.js'),
+        },
     });
 
     // and load the index.html of the app.
-    mainWindow.loadURL(`file://${__dirname}/index.html`);
+    mainWindow.loadURL(path.join(__dirname, 'homePage.html'));
 
     // Emitted when the window is closed.
     mainWindow.on('closed', () => {
