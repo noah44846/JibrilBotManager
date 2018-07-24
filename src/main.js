@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain as ipc } from 'electron';
+import { app, BrowserWindow, ipcMain as ipc, webContents } from 'electron';
 
 const JibrilBot = require('./bot/JibrilBot.js');
 const path = require('path');
@@ -31,6 +31,8 @@ const createWindow = () => {
         // Dereference the window object.
         mainWindow = null;
     });
+
+    // mainWindow.webContents.send('test', 'anyone here?');
 };
 
 const initialize = () => {
@@ -40,6 +42,7 @@ const initialize = () => {
             event.sender.send('asynchronous-reply', 'starting');
         }
     });
+
     createWindow();
 };
 
