@@ -1,5 +1,5 @@
 const discord = require('discord.js');
-const botconfig = require('../../botconfig.json');
+const botconfig = require('../bot/jsonFiles/botconfig.json');
 
 const JibrilBot = new discord.Client({ disableEveryone: true });
 

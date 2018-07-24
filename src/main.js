@@ -1,5 +1,6 @@
 import { app, BrowserWindow } from 'electron';
 
+const JibrilBot = require('./bot/JibrilBot.js');
 const path = require('path');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -23,7 +24,7 @@ const createWindow = () => {
     });
 
     // and load the index.html of the app.
-    mainWindow.loadURL(path.join(__dirname, 'homePage.html'));
+    mainWindow.loadURL(path.join('file://', __dirname, 'homePage.html'));
 
     // Emitted when the window is closed.
     mainWindow.on('closed', () => {
@@ -32,10 +33,15 @@ const createWindow = () => {
     });
 };
 
+const initialize = () => {
+    JibrilBot.start();
+    createWindow();
+};
+
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow);
+app.on('ready', initialize);
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {

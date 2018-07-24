@@ -1,1 +1,1 @@
-require('./bot/JibrilBot');
+require('./renderers/homePageRenderer.js');
