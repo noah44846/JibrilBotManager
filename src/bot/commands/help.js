@@ -3,7 +3,7 @@ const botconfig = require('../jsonFiles/botconfig.json');
 
 module.exports.run = async (bot, message) => {
     const helpEmbed = new Discord.RichEmbed()
-        .setTitle('TestBot help')
+        .setTitle('JibrilBot help')
         .setDescription(`
 **${botconfig.prefix}dm** <target user mention> <message to send> : dm a member of the same guild.
 **${botconfig.prefix}ping** : pong
