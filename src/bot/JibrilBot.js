@@ -1,13 +1,28 @@
 const Discord = require('discord.js');
 const fs = require('fs');
 const path = require('path');
+const ipc = require('electron').ipcMain;
 const botFuncLib = require('./botFuncLib.js');
 const botconfig = require('./jsonFiles/botconfig.json');
 
 const bot = new Discord.Client({ disableEveryone: true });
 bot.commands = new Discord.Collection();
 
-module.exports.start = () => {
+module.exports.start = async () => {
+    ipc.on('asynchronous-message', (event, arg) => {
+        if (arg === 'is-bot-on') {
+            bot.on('ready', () => {
+                event.sender.send('asynchronous-reply', 'bot-on');
+            });
+        } else if (arg === 'stop-bot') {
+            bot.destroy();
+            bot.on('disconnect', () => {
+                console.log('shutting down...');
+                event.sender.send('asynchronous-reply', 'bot-off');
+            });
+        }
+    });
+
     fs.readdir(path.join(__dirname, 'commands'), (err, files) => {
         if (err) console.log(err);
 

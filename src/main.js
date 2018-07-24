@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, ipcMain as ipc } from 'electron';
 
 const JibrilBot = require('./bot/JibrilBot.js');
 const path = require('path');
@@ -34,7 +34,12 @@ const createWindow = () => {
 };
 
 const initialize = () => {
-    JibrilBot.start();
+    ipc.on('asynchronous-message', async (event, arg) => {
+        if (arg === 'start-bot') {
+            JibrilBot.start();
+            event.sender.send('asynchronous-reply', 'starting');
+        }
+    });
     createWindow();
 };
 
