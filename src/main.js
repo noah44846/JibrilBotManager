@@ -1,4 +1,7 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, ipcMain as ipc, webContents } from 'electron';
+
+const JibrilBot = require('./bot/JibrilBot.js');
+const path = require('path');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
@@ -14,22 +17,39 @@ const createWindow = () => {
         height: 800,
         minWidth: 1200,
         minHeight: 800,
+        webPreferences: {
+            nodeIntegration: false,
+            preload: path.join(__dirname, 'preload.js'),
+        },
     });
 
     // and load the index.html of the app.
-    mainWindow.loadURL(`file://${__dirname}/index.html`);
+    mainWindow.loadURL(path.join('file://', __dirname, 'homePage.html'));
 
     // Emitted when the window is closed.
     mainWindow.on('closed', () => {
         // Dereference the window object.
         mainWindow = null;
     });
+
+    // mainWindow.webContents.send('test', 'anyone here?');
+};
+
+const initialize = () => {
+    ipc.on('asynchronous-message', async (event, arg) => {
+        if (arg === 'start-bot') {
+            JibrilBot.start();
+            event.sender.send('asynchronous-reply', 'starting');
+        }
+    });
+
+    createWindow();
 };
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow);
+app.on('ready', initialize);
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {

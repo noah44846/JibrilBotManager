@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+</head>
+
+<body>
+    <aside id="guilds_menu">
+        <header id="guilds_menu_header">
+            <h1>Select a guild</h1>
+        </header>
+
+    </aside>
+
+    <main id="main_wrapper">
+        <section id="welcome_screen">
+            <header id="welcome_header">
+                <h1>JibrilBot Management</h1>
+            </header>
+
+            <article id="welcome_text">
+                <p>With this app you can manage JibrilBot on every server she's on. You can select the roles that you want her
+                    to distibute automaticly and you can activate/deactivate certain of her commands for specific roles.</p>
+            </article>
+
+            <article id="bot_status">
+                <header>
+                    <button class="offline"></button>
+                    <h2>JibrilBot is
+                        <span id="status_text">offline</span>
+                    </h2>
+                </header>
+            </article>
+        </section>
+    </main>
+
+    <script>
+    const statusButton = document.querySelector('#bot_status > header > button');
+    window.files.statusButton.loadStatusButton(statusButton);
+    </script>
+
+</body>
+
+</html>

@@ -1,21 +1,21 @@
 body {
     height: 100%;
-    background-color: #151515; /* #2F3E36 #272B29 #252526 #333935 */
+    display: flex;
     margin: 0;
+    background-color: #151515; /* #2F3E36 #272B29 #252526 #333935 */
+    color: #fff;
+    font-family: Consolas, 'Courier New', monospace;
 }
 
 #main_wrapper {
     display: flex;
+    flex: 1;
     justify-content: space-between;
-    color: #fff;
-    font-family: Consolas, 'Courier New', monospace;
 }
 
 /* main view */
 
 #welcome_screen {
-    max-width: 70%;
-    flex-grow: 1;
     margin: auto;
 }
 
@@ -38,10 +38,29 @@ header {
     margin: auto;
 }
 
+.offline {
+    background: #f04747;
+}
+
+.starting_up {
+    background: #faa61a;
+}
+
+.online {
+    background: #43b581;
+}
+
+#bot_status > header > button {
+    width: 30px;
+    height: 30px;
+    border-radius: 25px;
+    margin-right: 20px;
+}
+
 /* guilds menu */
 
 #guilds_menu {
-    min-width: 300px;
+    width: 350px;
     height: 100vh;
     align-self: flex-start;
     background-color: #232323;

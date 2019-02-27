@@ -1,7 +1,7 @@
 {
   "name": "jibrilbotmanager",
   "productName": "JibrilBot manager",
-  "version": "0.2.0",
+  "version": "0.4.0",
   "description": "My Electron application description",
   "main": "src/main.js",
   "scripts": {
@@ -51,7 +51,8 @@
   "dependencies": {
     "discord.js": "^11.3.2",
     "electron-compile": "^6.4.3",
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "tatsumaki.js": "0.0.1"
   },
   "devDependencies": {
     "babel-plugin-transform-async-to-generator": "^6.24.1",

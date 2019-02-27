@@ -1,5 +1,5 @@
-node_modules
-out
-botconfig\.json
+node_modules/
+out/
+jsonFiles/
 .DS_Store
 .idea/
