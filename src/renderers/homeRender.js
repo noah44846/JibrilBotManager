@@ -4,7 +4,7 @@ const botconfig = require('../../botconfig.json');
 const JibrilBot = new discord.Client({ disableEveryone: true });
 const guildsMenu = document.getElementById('guilds_menu');
 
-// create alle the guild elements once the bot is "ready".
+// create all the guild elements once the bot is "ready".
 JibrilBot.on('ready', async () => {
     const guilds = JibrilBot.guilds;
 
